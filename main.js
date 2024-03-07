@@ -1,5 +1,5 @@
 import { Bodies, Body, Engine, Events, Render, Runner, World } from "matter-js";
-import { FRUITS_BASE } from "./fruits";
+import { FRUITS_BASE } from "./fruits.js";
 import "./dark.css";
 
 let FRUITS = FRUITS_BASE;
