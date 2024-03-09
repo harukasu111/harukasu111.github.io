@@ -61,6 +61,7 @@ const Game = {
 		pop8: new Audio('./assets/pop8.mp3'),
 		pop9: new Audio('./assets/pop9.mp3'),
 		pop10: new Audio('./assets/pop10.mp3'),
+		backgroundMusic: new Audio('./assets/bgm.mp3')
 	},
 
 	stateIndex: GameStates.MENU,
@@ -145,6 +146,9 @@ const Game = {
 
 	startGame: function () {
 		Game.sounds.click.play();
+
+		Game.sounds.backgroundMusic.loop = true; // Loop the background music
+		Game.sounds.backgroundMusic.play();  
 
 		Composite.remove(engine.world, menuStatics);
 		Composite.add(engine.world, gameStatics);
@@ -371,6 +375,14 @@ render.mouse = mouse;
 
 Game.initGame();
 
+const popSoundVolume = 0.05; // Example: 50% volume
+
+for (const soundKey in Game.sounds) {
+    if (soundKey.startsWith('pop')) { // Check if it's a pop sound
+        Game.sounds[soundKey].volume = popSoundVolume;
+    }
+};
+
 const resizeCanvas = () => {
 	const screenWidth = document.body.clientWidth;
 	const screenHeight = document.body.clientHeight;
@@ -396,6 +408,10 @@ const resizeCanvas = () => {
 	Game.elements.ui.style.height = `${Game.height}px`;
 	Game.elements.ui.style.transform = `scale(${scaleUI})`;
 };
+
+
+
+
 
 document.body.onload = resizeCanvas;
 document.body.onresize = resizeCanvas;
