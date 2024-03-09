@@ -21,10 +21,10 @@ const loseHeight = 84;
 const statusBarHeight = 48;
 const previewBallHeight = 32;
 const friction = {
-	friction: 0.006,
-	frictionStatic: 0.006,
-	frictionAir: 0,
-	restitution: 0.1
+	friction: 0.06,
+	frictionStatic: 0.01,
+	frictionAir: 0.001,
+	restitution: 0
 };
 
 const GameStates = {
