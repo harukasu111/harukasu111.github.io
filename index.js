@@ -23,7 +23,7 @@ const previewBallHeight = 32;
 const friction = {
 	friction: 0.06,
 	frictionStatic: 0.01,
-	frictionAir: 0.001,
+	frictionAir: 0.0,
 	restitution: 0
 };
 
