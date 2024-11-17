@@ -21,10 +21,10 @@ const loseHeight = 84;
 const statusBarHeight = 48;
 const previewBallHeight = 32;
 const friction = {
-	friction: 0.06,
+	friction: 0.2,
 	frictionStatic: 0.01,
 	frictionAir: 0.01,
-	restitution: 10
+	restitution: 1.23
 };
 
 const GameStates = {
@@ -96,6 +96,7 @@ const Game = {
 	setNextFruitSize: function () {
 		Game.nextFruitSize = Math.floor(rand() * 5);
 		Game.elements.nextFruitImg.src = `./assets/img/circle${Game.nextFruitSize}.png`;
+
 	},
 
 	showHighscore: function () {
@@ -358,6 +359,9 @@ const gameStatics = [
 
 	// Bottom
 	Bodies.rectangle(Game.width / 2, Game.height + (wallPad / 2) - statusBarHeight, Game.width, wallPad, wallProps),
+
+	// Top
+	Bodies.rectangle(Game.width / 2, -(wallPad / 2), Game.width, wallPad, wallProps)
 ];
 
 // add mouse control
@@ -375,7 +379,7 @@ render.mouse = mouse;
 
 Game.initGame();
 
-const popSoundVolume = 0.05; // Example: 50% volume
+const popSoundVolume = 0.03; // Example: 50% volume
 
 for (const soundKey in Game.sounds) {
     if (soundKey.startsWith('pop')) { // Check if it's a pop sound
