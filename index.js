@@ -24,7 +24,7 @@ const friction = {
 	friction: 0.06,
 	frictionStatic: 0.01,
 	frictionAir: 0.01,
-	restitution: 0
+	restitution: 10
 };
 
 const GameStates = {
